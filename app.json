@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "pose-detection",
+    "slug": "pose-detection",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
