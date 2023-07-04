@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import * as tf from '@tensorflow/tfjs';
+import '@tensorflow/tfjs-react-native';
 
-export default function App() {
+const App = () => {
+  const [isReady, setIsReady] = useState(false)
+  const init = async () => {
+    await tf.ready()
+    setIsReady(true)
+  }
+  useEffect(() => {
+    init()
+  }, [])
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <Text>App - {isReady.toString()}</Text>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
+
+const styles = StyleSheet.create({})
